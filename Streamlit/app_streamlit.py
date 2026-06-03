@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 # from IBKR import df, fig
-df = pd.read_excel("df.xlsx")
+df = pd.read_excel("Data/df.xlsx")
 st.title("Portfolio Dashboard")
 st.dataframe(df)
 
@@ -13,7 +13,7 @@ ax.set_title(f"Portfolio Allocation\nTotal: $ {portfolio_total:,.2f}")
 ax.legend(df["Ticker"], bbox_to_anchor=(1, 0.9))
 st.pyplot(fig)
 
-df_vt = pd.read_excel("vt.xlsx")
+df_vt = pd.read_excel("Data/vt.xlsx")
 df_vt["Close"] = pd.to_numeric(df_vt["Close"], errors="coerce")
 df_vt = df_vt.dropna(how="all") # delete empty rows
 st.title("VT Price Since Start of Year 2026")
@@ -33,7 +33,7 @@ ax2.annotate("Entry 154.14 / 15.05", (entry_date, entry_price), textcoords= "off
 ax2.axhline(y=154.14, linestyle='--', color='red')
 st.pyplot(fig2)
 
-df_voo = pd.read_excel("voo.xlsx")
+df_voo = pd.read_excel("Data/voo.xlsx")
 df_voo["Close"] = pd.to_numeric(df_voo["Close"], errors="coerce")
 df_voo = df_voo.dropna(how="all") # delete empty rows
 st.dataframe(df_voo)
@@ -46,7 +46,7 @@ ax3.set_ylabel("Price USD")
 ax3.grid(True)
 st.pyplot(fig3)
 
-df_iau = pd.read_excel("iau.xlsx")
+df_iau = pd.read_excel("Data/iau.xlsx")
 df_iau["Close"] = pd.to_numeric(df_iau["Close"], errors="coerce")
 df_iau = df_iau.dropna(how="all") # delete empty rows
 st.dataframe(df_iau)
@@ -59,7 +59,7 @@ ax4.set_ylabel("Price USD")
 ax4.grid(True)
 st.pyplot(fig4)
 
-df_sgov = pd.read_excel("sgov.xlsx")
+df_sgov = pd.read_excel("Data/sgov.xlsx")
 df_sgov["Close"] = pd.to_numeric(df_sgov["Close"], errors="coerce")
 df_sgov = df_sgov.dropna(how="all") # delete empty rows
 st.dataframe(df_sgov)
